@@ -3,7 +3,7 @@ sudo apt -y full-upgrade
 sudo apt install -y aptitude
 
 echo 'installing all dependencies'
-sudo aptitude install -y `cat dependencies.txt`
+sudo aptitude install -y aptitude gnome-tweak-tool dconf-editor gnome-shell-extensions gnome-shell-extension-system-monitor ncdu tmux zsh vim vim-gtk meld git-core build-essential exuberant-ctags ncurses-term python-jinja2 cmake xterm curl ssh net-tools jq tilix dirmngr gpg wget snapd 
 
 echo 'installing git' 
 sudo apt install git -y
@@ -40,7 +40,6 @@ echo 'enabling workspaces for both screens'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 echo 'installing zsh'
-sudo apt-get install zsh -y
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s /bin/zsh
 
