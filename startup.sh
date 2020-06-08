@@ -98,8 +98,12 @@ echo 'installing asdf'
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+echo '. $HOME/.asdf/asdf.sh' >> ~/.zshrc
+echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
+
 source ~/.bashrc
-source ~/.asdf/asdf.sh
+source ~/.zshrc
+
 source ~/.asdf/asdf.sh
 
 sudo apt-get install -y git-core curl wget build-essential autoconf unzip libssl-dev libncurses5-dev libreadline-dev zlib1g-dev libsqlite3-dev inotify-tools pkg-config
