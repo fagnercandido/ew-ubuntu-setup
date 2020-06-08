@@ -1,24 +1,13 @@
 echo 'updating system'
 sudo apt -y full-upgrade
-sudo apt install -y aptitude
 
 echo 'installing all dependencies'
-sudo aptitude install -y aptitude gnome-tweak-tool dconf-editor gnome-shell-extensions gnome-shell-extension-system-monitor ncdu tmux zsh vim vim-gtk meld git-core build-essential exuberant-ctags ncurses-term python-jinja2 cmake xterm curl ssh net-tools jq tilix dirmngr gpg wget snapd 
+sudo apt install aptitude gnome-tweak-tool dconf-editor gnome-shell-extensions gnome-shell-extension-system-monitor ncdu tmux zsh vim vim-gtk meld git-core build-essential exuberant-ctags ncurses-term python-jinja2 cmake xterm curl ssh net-tools jq tilix dirmngr gpg wget snapd -y
 
 echo 'installing git' 
 sudo apt install git -y
-
-echo "What name do you want to use in GIT user.name?"
-echo "For example, mine will be \"Erick Wendel\""
-read git_config_user_name
-git config --global user.name "$git_config_user_name"
-clear 
-
-echo "What email do you want to use in GIT user.email?"
-echo "For example, mine will be \"erick.workspace@gmail.com\""
-read git_config_user_email
-git config --global user.email $git_config_user_email
-clear
+git config --global user.name "Fagner Candido"
+git config --global user.email "fsouzacandido@gmail.com"
 
 echo "Can I set VIM as your default GIT editor for you? (y/n)"
 read git_core_editor_to_vim
