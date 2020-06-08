@@ -15,16 +15,16 @@ echo 'installing tool to handle clipboard via CLI'
 sudo apt-get install xclip -y
 
 echo "Generating a SSH Key"
-ssh-keygen -t rsa -b 4096 -C $git_config_user_email
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
+ssh-keygen -t rsa -b 4096 -C "fsouzacandido@gmail.com"
+ssh-add $HOME/.ssh/id_rsa
+cat $HOME/.ssh/id_rsa.pub | xclip -selection clipboard
 
 echo 'enabling workspaces for both screens' 
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 export alias pbcopy='xclip -selection clipboard'
 export alias pbpaste='xclip -selection clipboard -o'
-source ~/.zshrc
+source $HOME/.zshrc
 
 echo 'installing vim'
 sudo apt install vim -y
@@ -54,12 +54,12 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension vscjava.vscode-java-pack
 code --install-extension ms-python.python
 
-source ~/.zshrc
+source $HOME/.zshrc
 
 echo 'installing autosuggestions' 
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
-source ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> $HOME/.zshrc
+source $HOME/.zshrc
 
 echo 'installing docker' 
 sudo apt-get remove docker docker-engine docker.io
@@ -78,27 +78,27 @@ docker-compose --version
 
 
 echo 'installing fzf'
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+$HOME/.fzf/install --all
 
 echo 'installing asdf'
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
-echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
-echo '. $HOME/.asdf/asdf.sh' >> ~/.zshrc
-echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
+git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+echo '. $HOME/.asdf/asdf.sh' >> $HOME/.bashrc
+echo '. $HOME/.asdf/completions/asdf.bash' >> $HOME/.bashrc
+echo '. $HOME/.asdf/asdf.sh' >> $HOME/.zshrc
+echo '. $HOME/.asdf/completions/asdf.bash' >> $HOME/.zshrc
 
 
 sudo apt-get install -y git-core curl wget build-essential autoconf unzip libssl-dev libncurses5-dev libreadline-dev zlib1g-dev libsqlite3-dev inotify-tools pkg-config
 
-source .bashrc
-source .zshrc
+source $HOME/.bashrc
+source $HOME/.zshrc
 
-source .asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
 
 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+bash $HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring
 asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf plugin-add java https://github.com/halcyon/asdf-java.git
