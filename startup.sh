@@ -92,3 +92,22 @@ docker-compose --version
 echo 'installing fzf'
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
+
+echo 'installing asdf'
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+source ~/.bashrc
+source ~/.asdf/asdf.sh
+source ~/.asdf/asdf.sh
+
+sudo apt-get install -y git-core curl wget build-essential autoconf unzip libssl-dev libncurses5-dev libreadline-dev zlib1g-dev libsqlite3-dev inotify-tools pkg-config
+
+asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf plugin-add java https://github.com/halcyon/asdf-java.git
+asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+asdf plugin-add gradle https://github.com/rfrancis/asdf-gradle.git
+asdf plugin-add maven
