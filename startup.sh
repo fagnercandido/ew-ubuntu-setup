@@ -9,14 +9,7 @@ echo 'installing git'
 sudo apt install git -y
 git config --global user.name "Fagner Candido"
 git config --global user.email "fsouzacandido@gmail.com"
-
-echo "Can I set VIM as your default GIT editor for you? (y/n)"
-read git_core_editor_to_vim
-if echo "$git_core_editor_to_vim" | grep -iq "^y" ;then
-	git config --global core.editor vim
-else
-	echo "Okay, no problem. :) Let's move on!"
-fi
+git config --global core.editor vim
 
 echo 'installing tool to handle clipboard via CLI'
 sudo apt-get install xclip -y
@@ -29,18 +22,12 @@ cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 echo 'enabling workspaces for both screens' 
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
-echo 'installing zsh'
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-chsh -s /bin/zsh
-
 export alias pbcopy='xclip -selection clipboard'
 export alias pbpaste='xclip -selection clipboard -o'
 source ~/.zshrc
 
 echo 'installing vim'
 sudo apt install vim -y
-clear
-
 
 echo 'installing snap'
 snap refresh
@@ -101,12 +88,14 @@ echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 echo '. $HOME/.asdf/asdf.sh' >> ~/.zshrc
 echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
 
-source ~/.bashrc
-source ~/.zshrc
-
-source ~/.asdf/asdf.sh
 
 sudo apt-get install -y git-core curl wget build-essential autoconf unzip libssl-dev libncurses5-dev libreadline-dev zlib1g-dev libsqlite3-dev inotify-tools pkg-config
+
+source .bashrc
+source .zshrc
+
+source .asdf/asdf.sh
+
 
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
@@ -116,3 +105,8 @@ asdf plugin-add java https://github.com/halcyon/asdf-java.git
 asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 asdf plugin-add gradle https://github.com/rfrancis/asdf-gradle.git
 asdf plugin-add maven
+
+
+echo 'installing zsh'
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+chsh -s /bin/zsh
