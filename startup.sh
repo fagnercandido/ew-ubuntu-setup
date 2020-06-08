@@ -1,4 +1,5 @@
 echo 'updating system'
+sudo apt update
 sudo apt -y full-upgrade
 
 echo 'installing all dependencies'
